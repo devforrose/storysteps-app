@@ -1,0 +1,11 @@
+node_modules
+.env
+.env.local
+dist
+.next
+/tmp
+*.db
+/src/generated
+/data
+.transcript-cache
+python-3.12.9-macos11.pkg

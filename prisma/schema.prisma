@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Vocabulary {
+  id             String   @id @default(cuid())
+  wordId         String   @unique
+  status         String   // 'learning' | 'known'
+  encounterCount Int      @default(1)
+  addedAt        DateTime @default(now())
+  lastReviewedAt DateTime?
+}
+
+model SRSCard {
+  id             String   @id @default(cuid())
+  wordId         String
+  front          String
+  back           String
+  interval       Int      @default(0)
+  easeFactor     Float    @default(2.5)
+  repetitions    Int      @default(0)
+  nextReviewDate DateTime @default(now())
+  lastReviewedAt DateTime?
+  createdAt      DateTime @default(now())
+}
+
+model TranscriptCache {
+  id        String   @id @default(cuid())
+  videoId   String   @unique
+  source    String   // 'whisper' | 'youtube-captions'
+  data      String   // JSON string of transcript segments
+  createdAt DateTime @default(now())
+}
+
+model SavedVideo {
+  id        String   @id @default(cuid())
+  videoId   String   @unique
+  title     String
+  thumbnail String
+  addedAt   DateTime @default(now())
+}
