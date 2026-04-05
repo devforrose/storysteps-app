@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"vite\" \"tsx watch src/server/index.ts\"",
-    "build": "vite build",
+    "build": "vite build && drizzle-kit migrate",
     "start": "tsx src/server/index.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",

@@ -68,7 +68,8 @@
       "Bash(cp /tmp/gh/bin/gh ~/bin/)",
       "Bash(cp /tmp/gh/gh_2.67.0_macOS_arm64/bin/gh ~/bin/gh)",
       "Bash(~/bin/gh --version)",
-      "Bash(~/bin/gh auth:*)"
+      "Bash(~/bin/gh auth:*)",
+      "Bash(~/bin/gh repo:*)"
     ]
   }
 }
